@@ -1,6 +1,5 @@
 // chakra imports
 import { Box, ChakraProvider, Portal } from "@chakra-ui/react";
-import Footer from "components/Footer/Footer.js";
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import React from "react";
@@ -8,23 +7,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 import theme from "theme/themeAuth.js";
 
-/*!
 
-=========================================================
-* Vision UI Free Chakra - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vision-ui-free-chakra
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-* Licensed under MIT (https://github.com/creativetimofficial/vision-ui-free-chakra/blob/master LICENSE.md)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 
 export default function Pages(props) {
   const { ...rest } = props;
