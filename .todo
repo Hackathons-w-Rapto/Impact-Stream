@@ -4,10 +4,10 @@
 - **Rapto**
 
     - [done] Set up Server
-    - [] Server & S.C Integration
+    - [] Server 
     - [] UI Improvement
 
 - **Saber**
     - [ ] UI Development & Resp
     - [ ] Write S.C
-    - [ ] Test & Deploy S.C w/ Foundry
+    - [ ] S.C Integration
