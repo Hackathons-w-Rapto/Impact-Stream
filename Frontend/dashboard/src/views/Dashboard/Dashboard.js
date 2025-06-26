@@ -52,8 +52,8 @@ import { dashboardTableData, timelineData } from 'variables/general';
 export default function Dashboard() {
 	return (
 		<Flex flexDirection='column' pt={{ base: '120px', md: '75px' }}>
-			<SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
-				{/* MiniStatistics Card */}
+			{/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
+				
 				<Card>
 					<CardBody>
 						<Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -83,7 +83,7 @@ export default function Dashboard() {
 						</Flex>
 					</CardBody>
 				</Card>
-				{/* MiniStatistics Card */}
+				
 				<Card minH='83px'>
 					<CardBody>
 						<Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -113,7 +113,7 @@ export default function Dashboard() {
 						</Flex>
 					</CardBody>
 				</Card>
-				{/* MiniStatistics Card */}
+				
 				<Card>
 					<CardBody>
 						<Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -144,7 +144,7 @@ export default function Dashboard() {
 						</Flex>
 					</CardBody>
 				</Card>
-				{/* MiniStatistics Card */}
+				
 				<Card>
 					<CardBody>
 						<Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -174,7 +174,7 @@ export default function Dashboard() {
 						</Flex>
 					</CardBody>
 				</Card>
-			</SimpleGrid>
+			</SimpleGrid> */}
 			<Grid templateColumns={{ sm: '1fr', md: '1fr 1fr', '2xl': '2fr 1.2fr 1.5fr' }} my='26px' gap='18px'>
 				{/* Welcome Card */}
 				<Card
@@ -288,7 +288,7 @@ export default function Dashboard() {
 					</Flex>
 				</Card>
 				{/* Referral Tracking */}
-				<Card gridArea={{ md: '2 / 2 / 3 / 3', '2xl': 'auto' }}>
+				{/* <Card gridArea={{ md: '2 / 2 / 3 / 3', '2xl': 'auto' }}>
 					<Flex direction='column'>
 						<Flex justify='space-between' align='center' mb='40px'>
 							<Text color='#fff' fontSize='lg' fontWeight='bold'>
@@ -366,229 +366,8 @@ export default function Dashboard() {
 				gap='24px'
 				mb='24px'>
 				{/* Sales Overview */}
-				<Card p='28px 0px 0px 0px'>
-					<CardHeader mb='20px' ps='22px'>
-						<Flex direction='column' alignSelf='flex-start'>
-							<Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
-								Sales Overview
-							</Text>
-							<Text fontSize='md' fontWeight='medium' color='gray.400'>
-								<Text as='span' color='green.400' fontWeight='bold'>
-									(+5%) more
-								</Text>{' '}
-								in 2021
-							</Text>
-						</Flex>
-					</CardHeader>
-					<Box w='100%' minH={{ sm: '300px' }}>
-						<LineChart
-							lineChartData={lineChartDataDashboard}
-							lineChartOptions={lineChartOptionsDashboard}
-						/>
-					</Box>
-				</Card>
-				{/* Active Users */}
-				<Card p='16px'>
-					<CardBody>
-						<Flex direction='column' w='100%'>
-							<Box
-								bg='linear-gradient(126.97deg, #060C29 28.26%, rgba(4, 12, 48, 0.5) 91.2%)'
-								borderRadius='20px'
-								display={{ sm: 'flex', md: 'block' }}
-								justify={{ sm: 'center', md: 'flex-start' }}
-								align={{ sm: 'center', md: 'flex-start' }}
-								minH={{ sm: '180px', md: '220px' }}
-								p={{ sm: '0px', md: '22px' }}>
-								<BarChart
-									barChartOptions={barChartOptionsDashboard}
-									barChartData={barChartDataDashboard}
-								/>
-							</Box>
-							<Flex direction='column' mt='24px' mb='36px' alignSelf='flex-start'>
-								<Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
-									Active Users
-								</Text>
-								<Text fontSize='md' fontWeight='medium' color='gray.400'>
-									<Text as='span' color='green.400' fontWeight='bold'>
-										(+23%)
-									</Text>{' '}
-									than last week
-								</Text>
-							</Flex>
-							<SimpleGrid gap={{ sm: '12px' }} columns={4}>
-								<Flex direction='column'>
-									<Flex alignItems='center'>
-										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
-											<WalletIcon h={'15px'} w={'15px'} color='#fff' />
-										</IconBox>
-										<Text fontSize='sm' color='gray.400'>
-											Users
-										</Text>
-									</Flex>
-									<Text
-										fontSize={{ sm: 'md', lg: 'lg' }}
-										color='#fff'
-										fontWeight='bold'
-										mb='6px'
-										my='6px'>
-										32,984
-									</Text>
-									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={20} />
-								</Flex>
-								<Flex direction='column'>
-									<Flex alignItems='center'>
-										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
-											<RocketIcon h={'15px'} w={'15px'} color='#fff' />
-										</IconBox>
-										<Text fontSize='sm' color='gray.400'>
-											Clicks
-										</Text>
-									</Flex>
-									<Text
-										fontSize={{ sm: 'md', lg: 'lg' }}
-										color='#fff'
-										fontWeight='bold'
-										mb='6px'
-										my='6px'>
-										2.42m
-									</Text>
-									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={90} />
-								</Flex>
-								<Flex direction='column'>
-									<Flex alignItems='center'>
-										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
-											<CartIcon h={'15px'} w={'15px'} color='#fff' />
-										</IconBox>
-										<Text fontSize='sm' color='gray.400'>
-											Sales
-										</Text>
-									</Flex>
-									<Text
-										fontSize={{ sm: 'md', lg: 'lg' }}
-										color='#fff'
-										fontWeight='bold'
-										mb='6px'
-										my='6px'>
-										2,400$
-									</Text>
-									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={30} />
-								</Flex>
-								<Flex direction='column'>
-									<Flex alignItems='center'>
-										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
-											<StatsIcon h={'15px'} w={'15px'} color='#fff' />
-										</IconBox>
-										<Text fontSize='sm' color='gray.400'>
-											Items
-										</Text>
-									</Flex>
-									<Text
-										fontSize={{ sm: 'md', lg: 'lg' }}
-										color='#fff'
-										fontWeight='bold'
-										mb='6px'
-										my='6px'>
-										320
-									</Text>
-									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={50} />
-								</Flex>
-							</SimpleGrid>
-						</Flex>
-					</CardBody>
-				</Card>
 			</Grid>
-			<Grid templateColumns={{ sm: '1fr', md: '1fr 1fr', lg: '2fr 1fr' }} gap='24px'>
-				{/* Projects */}
-				<Card p='16px' overflowX={{ sm: 'scroll', xl: 'hidden' }}>
-					<CardHeader p='12px 0px 28px 0px'>
-						<Flex direction='column'>
-							<Text fontSize='lg' color='#fff' fontWeight='bold' pb='8px'>
-								Projects
-							</Text>
-							<Flex align='center'>
-								<Icon as={IoCheckmarkDoneCircleSharp} color='teal.300' w={4} h={4} pe='3px' />
-								<Text fontSize='sm' color='gray.400' fontWeight='normal'>
-									<Text fontWeight='bold' as='span'>
-										30 done
-									</Text>{' '}
-									this month.
-								</Text>
-							</Flex>
-						</Flex>
-					</CardHeader>
-					<Table variant='simple' color='#fff'>
-						<Thead>
-							<Tr my='.8rem' ps='0px'>
-								<Th
-									ps='0px'
-									color='gray.400'
-									fontFamily='Plus Jakarta Display'
-									borderBottomColor='#56577A'>
-									Companies
-								</Th>
-								<Th color='gray.400' fontFamily='Plus Jakarta Display' borderBottomColor='#56577A'>
-									Members
-								</Th>
-								<Th color='gray.400' fontFamily='Plus Jakarta Display' borderBottomColor='#56577A'>
-									Budget
-								</Th>
-								<Th color='gray.400' fontFamily='Plus Jakarta Display' borderBottomColor='#56577A'>
-									Completion
-								</Th>
-							</Tr>
-						</Thead>
-						<Tbody>
-							{dashboardTableData.map((row, index, arr) => {
-								return (
-									<DashboardTableRow
-										name={row.name}
-										logo={row.logo}
-										members={row.members}
-										budget={row.budget}
-										progression={row.progression}
-										lastItem={index === arr.length - 1 ? true : false}
-									/>
-								);
-							})}
-						</Tbody>
-					</Table>
-				</Card>
-				{/* Orders Overview */}
-				<Card>
-					<CardHeader mb='32px'>
-						<Flex direction='column'>
-							<Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
-								Orders overview
-							</Text>
-							<Flex align='center'>
-								<Icon as={AiFillCheckCircle} color='green.500' w='15px' h='15px' me='5px' />
-								<Text fontSize='sm' color='gray.400' fontWeight='normal'>
-									<Text fontWeight='bold' as='span' color='gray.400'>
-										+30%
-									</Text>{' '}
-									this month
-								</Text>
-							</Flex>
-						</Flex>
-					</CardHeader>
-					<CardBody>
-						<Flex direction='column' lineHeight='21px'>
-							{timelineData.map((row, index, arr) => {
-								return (
-									<TimelineRow
-										logo={row.logo}
-										title={row.title}
-										date={row.date}
-										color={row.color}
-										index={index}
-										arrLength={arr.length}
-									/>
-								);
-							})}
-						</Flex>
-					</CardBody>
-				</Card>
-			</Grid>
+			
 		</Flex>
 	);
 }
