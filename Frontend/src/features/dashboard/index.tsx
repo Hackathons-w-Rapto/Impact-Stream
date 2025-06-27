@@ -12,7 +12,7 @@ import { Main } from '@/components/layout/main'
 import { TopNav } from '@/components/layout/top-nav'
 
 import { ThemeSwitch } from '@/components/theme-switch'
-import { Overview } from './components/overview'
+// import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
 
 export default function Dashboard() {
@@ -23,7 +23,6 @@ export default function Dashboard() {
         <TopNav links={topNav} />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
-   
         </div>
       </Header>
 
