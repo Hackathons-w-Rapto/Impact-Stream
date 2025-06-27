@@ -31,9 +31,6 @@ export default function Dashboard() {
       <Main>
         <div className='mb-2 flex items-center justify-between space-y-2'>
           <h1 className='text-2xl font-bold tracking-tight'>Dashboard</h1>
-          <div className='flex items-center space-x-2'>
-            <Button>Download</Button>
-          </div>
         </div>
         <Tabs
           orientation='vertical'
@@ -146,14 +143,6 @@ export default function Dashboard() {
               </Card>
             </div>
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
-              <Card className='col-span-1 lg:col-span-4'>
-                <CardHeader>
-                  <CardTitle>Overview</CardTitle>
-                </CardHeader>
-                <CardContent className='pl-2'>
-                  <Overview />
-                </CardContent>
-              </Card>
               <Card className='col-span-1 lg:col-span-3'>
                 <CardHeader>
                   <CardTitle>Recent Sales</CardTitle>
