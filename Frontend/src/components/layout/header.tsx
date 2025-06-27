@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
+import { WalletConnectButton } from '../WalletConnectButton'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   fixed?: boolean
@@ -41,6 +42,10 @@ export const Header = ({
       <SidebarTrigger variant='outline' className='scale-125 sm:scale-100' />
       <Separator orientation='vertical' className='h-6' />
       {children}
+
+
+
+      <WalletConnectButton />
     </header>
   )
 }
