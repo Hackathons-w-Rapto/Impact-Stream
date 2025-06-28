@@ -2,7 +2,6 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
-import { WalletConnectButton } from '../WalletConnectButton'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   fixed?: boolean
@@ -44,8 +43,8 @@ export const Header = ({
       {children}
 
 
-
-      <WalletConnectButton />
+      <w3m-button />
+      {/* <WalletConnectButton /> */}
     </header>
   )
 }
