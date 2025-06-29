@@ -28,19 +28,19 @@ interface IStakeStream {
         uint256 createdAt; // Creation timestamp
     }
 
-    // Events for UI updates
+  
     event ProjectCreated(string indexed projectId, address owner);
     event ProjectUpdated(string indexed projectId, uint256 newDeadline, uint256 newGoal);
     event Staked(string indexed projectId, address user, uint256 amount);
     event RewardsDistributed(string indexed projectId, address user, uint256 amount);
     event ProjectCompleted(string indexed projectId);
 
-    // New events for admin dashboard
+
     event ProjectCanceled(string indexed projectId);
     event ProjectListed(string indexed projectId);
     event ProjectHidden(string indexed projectId);
 
-    // Dashboard functions
+
     function createProject(
         string calldata id,
         string calldata title,
@@ -57,7 +57,7 @@ interface IStakeStream {
 
     function getUserStake(string calldata projectId, address user) external view returns (uint256);
 
-    // New admin functions
+   
     function cancelProject(string calldata projectId) external;
 
     function hideProject(string calldata projectId) external;
