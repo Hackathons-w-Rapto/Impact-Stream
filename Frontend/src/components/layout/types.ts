@@ -8,12 +8,12 @@ interface BaseNavItem {
 }
 
 type NavLink = BaseNavItem & {
-  url: LinkProps['to']
+  url: string
   items?: never
 }
 
 type NavCollapsible = BaseNavItem & {
-  items: (BaseNavItem & { url: LinkProps['to'] })[]
+   items: (BaseNavItem & { url: string | "/admin" })[]
   url?: never
 }
 
@@ -22,6 +22,7 @@ type NavItem = NavCollapsible | NavLink
 interface NavGroup {
   title: string
   items: NavItem[]
+  url?: string
 }
 
 interface SidebarData {
