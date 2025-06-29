@@ -1,9 +1,10 @@
 // src/components/dashboard/ProjectManager.tsx
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Eye, Calendar, Coins } from "lucide-react";
-import { useContractWrite } from 'wagmi';
+import {  useWriteContract } from 'wagmi';
 import { STAKE_STREAM_ADDRESS, stakeStreamABI } from '@/context/contractData';
 
 interface Project {
@@ -22,9 +23,11 @@ interface ProjectManagerProps {
 }
 
 export default function ProjectManager({ projects, createdProjects }: ProjectManagerProps) {
+
+  const [activeTab, setActiveTab] = useState<string>("list");
   
   // Contract write for updating projects
-  const { write: updateProject } = useContractWrite({
+  const { writeAsync: updateProject } = useWriteContract({
     address: STAKE_STREAM_ADDRESS,
     abi: stakeStreamABI,
     functionName: 'adminUpdateProject',
@@ -44,34 +47,23 @@ export default function ProjectManager({ projects, createdProjects }: ProjectMan
   });
   
   // Contract write for canceling projects
-  interface CancelProjectWriteConfig {
-    address: `0x${string}`;
-    abi: typeof stakeStreamABI;
-    functionName: 'cancelProject';
-    onSuccess: () => void;
-  }
-
-  interface CancelProjectWriteResult {
-    write: (args: { args: [string] }) => void;
-  }
-
-  const { write: cancelProject }: CancelProjectWriteResult = useContractWrite({
-    address: '0xSTAKE_STREAM_ADDRESS',
+  const { write: cancelProject } = useContractWrite({
+    address: STAKE_STREAM_ADDRESS,
     abi: stakeStreamABI,
     functionName: 'cancelProject',
-    onSuccess: (): void => {
+    onSuccess: () => {
       alert({
         title: "Project canceled",
         description: "Project has been marked as canceled",
       });
     }
-  } as CancelProjectWriteConfig);
+  });
 
-  const handleUpdate = (projectId: string) => {
+  const handleUpdate = async (projectId: string) => {
     // In a real implementation, we'd open a modal with form
     // For demo, we'll just extend the deadline by 30 days
     const newDeadline = Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60;
-    updateProject({ args: [projectId, newDeadline, 0] });
+    await updateProject({ args: [projectId, newDeadline, 0] });
   };
   
   const handleCancel = (projectId: string) => {
@@ -95,6 +87,12 @@ export default function ProjectManager({ projects, createdProjects }: ProjectMan
     return `$${(Number(amount) / 10**6).toLocaleString()}`;
   };
   
+
+
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+  };
   return (
     <div className="space-y-6">
       {projects.length === 0 ? (

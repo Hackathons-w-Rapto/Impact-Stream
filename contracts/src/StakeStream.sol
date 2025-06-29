@@ -53,7 +53,6 @@ contract StakeStream is IStakeStream, Ownable {
             createdAt: block.timestamp
         });
 
-        // Add to project list and emit event
         allProjectIds.push(id);
         emit ProjectCreated(id, msg.sender);
         emit ProjectListed(id);
