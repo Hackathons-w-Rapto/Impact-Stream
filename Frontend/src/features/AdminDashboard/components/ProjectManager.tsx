@@ -4,8 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Eye, Calendar, Coins } from "lucide-react";
 import { useContractWrite } from 'wagmi';
-import { stakeStreamABI } from '@/abi/StakeStreamABI';
-import { useToast } from '@/components/ui/use-toast';
+import { STAKE_STREAM_ADDRESS, stakeStreamABI } from '@/context/contractData';
 
 interface Project {
   id: string;
@@ -23,21 +22,20 @@ interface ProjectManagerProps {
 }
 
 export default function ProjectManager({ projects, createdProjects }: ProjectManagerProps) {
-  const { toast } = useToast();
   
   // Contract write for updating projects
   const { write: updateProject } = useContractWrite({
-    address: '0xSTAKE_STREAM_ADDRESS',
+    address: STAKE_STREAM_ADDRESS,
     abi: stakeStreamABI,
     functionName: 'adminUpdateProject',
     onSuccess: () => {
-      toast({
+      alert({
         title: "Project updated",
         description: "Changes saved to blockchain",
       });
     },
     onError: (error) => {
-      toast({
+      alert({
         title: "Update failed",
         description: error.message,
         variant: "destructive"
@@ -46,17 +44,28 @@ export default function ProjectManager({ projects, createdProjects }: ProjectMan
   });
   
   // Contract write for canceling projects
-  const { write: cancelProject } = useContractWrite({
+  interface CancelProjectWriteConfig {
+    address: `0x${string}`;
+    abi: typeof stakeStreamABI;
+    functionName: 'cancelProject';
+    onSuccess: () => void;
+  }
+
+  interface CancelProjectWriteResult {
+    write: (args: { args: [string] }) => void;
+  }
+
+  const { write: cancelProject }: CancelProjectWriteResult = useContractWrite({
     address: '0xSTAKE_STREAM_ADDRESS',
     abi: stakeStreamABI,
     functionName: 'cancelProject',
-    onSuccess: () => {
-      toast({
+    onSuccess: (): void => {
+      alert({
         title: "Project canceled",
         description: "Project has been marked as canceled",
       });
     }
-  });
+  } as CancelProjectWriteConfig);
 
   const handleUpdate = (projectId: string) => {
     // In a real implementation, we'd open a modal with form

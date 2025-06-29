@@ -5,8 +5,9 @@ import { Card } from "@/components/ui/card";
 import TemplateSelector from '../dashboard/components/TemplateSelector';
 import ProjectManager from '../AdminDashboard/components/ProjectManager';
 import { useContractRead } from 'wagmi';
-// import { stakeStreamABI } from '@/abi/StakeStreamABI';
+import { STAKE_STREAM_ADDRESS, stakeStreamABI } from '@/context/contractData';
 import { Loader } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('create');
@@ -14,9 +15,9 @@ export default function AdminDashboard() {
   
   // Read projects from contract
   const { data: projects, isLoading } = useContractRead({
-    address: '0xSTAKE_STREAM_ADDRESS',
+    address: STAKE_STREAM_ADDRESS,
     abi: stakeStreamABI,
-    functionName: 'getAllProjects', // This function needs to be added to contract
+    functionName: 'getAllProjects', 
   });
 
   const handleProjectCreated = (projectId: string) => {
