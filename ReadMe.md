@@ -15,15 +15,15 @@ StakeStream is a MEV-proof project staking platform built on **Umi Network** tha
 ## ✨ Key Features
 
 ### User Dashboard
-- **Discover Projects**: Filter active/upcoming/completed staking opportunities
-- **Intent-Based Staking**: Stake funds via Umi encrypted intents
-- **Real-time Tracking**: Visual progress bars and countdown timers
-- **MEV-Proof Transactions**: Protected from front-running
-- **One-Click Claims**: Gasless reward distribution
+- **Discover Projects**: Filter active/upcoming/
+completed staking opportunities - onChain/off-chain
+- **Intent-Based Staking**: Stake funds via Umi encrypted intents -onChain
+- **Real-time Tracking**: Visual progress bars and countdown timers -off/chain
+- **MEV-Proof Transactions**: Protected from front-running -onChain
 
 ### Admin Dashboard
-- **Project Management**: Create/update projects with parameters
-- **Conditional Rules**: Set auto-execution rules (e.g., "Extend deadline if 90% funded")
+- **Project Management**: Create/update projects with parameters -offchain
+- **Conditional Rules**: Set auto-execution rules (e.g., "Extend deadline if 90% funded") 
 - **Revenue Distribution**: Configure streaming payments
 - **Intent-Based Updates**: Modify projects without direct contract calls
 
